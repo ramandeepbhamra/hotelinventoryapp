@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-form-field appearance="fill">
+        <mat-label>{{'selectLanguage' | translate}}</mat-label>
+        <mat-select [(value)]="selectedLang" (selectionChange)="changeLanguage()">
+          <mat-option value="en">
+            English
+          </mat-option>
+          <mat-option value="fr">
+            French
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <a mat-list-item [routerLink]="'rooms'">{{'navigation.rooms' | translate}}</a>
+      <a mat-list-item [routerLink]="'employee'">{{'navigation.employees' | translate}}</a>
+      <a mat-list-item [routerLink]="'rooms/add'">{{'navigation.addRoom' | translate}}</a>
+      <a mat-list-item [routerLink]="'booking'">{{'navigation.booking' | translate}}</a>
+      <a mat-list-item [routerLink]="'comments'">{{'navigation.comments' | translate}}</a>
+      <a mat-list-item [routerLink]="'observables'">Observables</a>
+      <a mat-list-item [routerLink]="'promises'">Promises</a>
+      <a mat-list-item [routerLink]="'observable-vs-promise'">Observable Vs Promice</a>
+      <a mat-list-item [routerLink]="'observable-vs-subject'">Observable Vs Subject</a>
+      <a mat-list-item [routerLink]="'subject-types'">Subject Types</a>
+      <a mat-list-item [routerLink]="'view-encapsulation'">View Encapsulation</a>
+      <a mat-list-item [routerLink]="'merge-map-vs-switch-map'">Merge Map Vs Switch Map</a>
+      <a mat-list-item [routerLink]="'comments'">{{'123456' | currency}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>hotelinventoryapp</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,10 @@
+{
+    "selectLanguage": "Select Language FR",
+    "navigation": {
+        "rooms": "Rooms FR",
+        "employees": "Employees FR",
+        "addRoom": "Add Room FR",
+        "booking": "Booking FR",
+        "comments": "Comment FR"
+    }
+}

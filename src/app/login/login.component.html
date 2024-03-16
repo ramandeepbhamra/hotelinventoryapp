@@ -1,0 +1,16 @@
+<form #loginForm="ngForm" (ngSubmit)="login()">
+    <div class="form-group">
+        <input #emailInput="ngModel" type="email" rummyEmailValidator rummyHover [color]="'orange'" required class="form-control" name="email" placeholder="Email"
+            [(ngModel)]="email">
+            <div>
+                {{emailInput.errors | json}}
+            </div>
+    </div>
+    <div class="form-group">
+        <input type="password" rummyHover color="steelblue" required class="form-control" name="password" placeholder="Password"
+        [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+        <button class="bt btn-primary" type="submit" [disabled]="loginForm.invalid">Submit</button>
+    </div>
+</form>

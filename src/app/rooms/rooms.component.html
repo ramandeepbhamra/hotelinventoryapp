@@ -1,0 +1,36 @@
+<rummy-header></rummy-header>
+<rummy-header></rummy-header>
+<rummy-header></rummy-header>
+<rummy-header></rummy-header>
+{{hotelName}}
+<div [hidden]="hideRooms">
+    Number of Rooms:
+    <div [innerText]="numberOfRooms"></div>
+</div>
+
+<div *ngIf="rooms.availabeRooms > 10">
+    Number of Rooms:
+    <div [innerText]="rooms.availabeRooms"></div>
+</div>
+<div *ngIf="selectedRoom">
+    {{selectedRoom | json}}
+</div>
+<div>
+    {{priceFilter|json}}
+    <input type="number" class="form-control" placeholder="Price" [formControl]="priceFilter">
+</div>
+<div>
+    <!-- <button (click)="addRoom()">Add Room</button> -->
+    <button routerLink="/rooms/add">Add Room</button>
+</div>
+<h2>{{getError$ | async}}
+    Number of Rooms: {{roomsCount$ | async}}
+</h2>
+<div *ngIf="rooms$ | async as rooms">
+    <rummy-rooms-list [rooms]="rooms" [filterPrice]="priceFilter.value" (slectedRoom)="selectRoom($event)"></rummy-rooms-list>
+</div>
+
+<h1>{{totalBytes}} loaded</h1>
+<button (click)="toggle()">Toggle</button>
+
+<router-outlet></router-outlet>

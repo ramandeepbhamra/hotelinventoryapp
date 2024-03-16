@@ -1,0 +1,9 @@
+<div class="container">
+    <div *ngIf="isLoading">
+        Loading...
+    </div>
+    <input [formControl]="searchControl" placeholder="Search...">
+    <div class="results">
+        <div *ngFor="let fruit of fruits">{{fruit}}</div>
+    </div>
+</div>

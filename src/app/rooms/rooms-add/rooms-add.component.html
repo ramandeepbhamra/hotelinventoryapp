@@ -1,0 +1,42 @@
+<form #roomsForm="ngForm" (ngSubmit)="AddRoom(roomsForm)">
+    <div class="form-group">
+        <input type="text" required class="form-control" name="roomType" placeholder="Room Type"
+            [(ngModel)]="room.roomType" [ngModelOptions]="{updateOn:'blur'}">
+    </div>
+    <div class="form-group">
+        <input type="text" required minlength="5" maxlength="20" class="form-control" name="amenities"
+            #amenities="ngModel" placeholder="Amenities" [(ngModel)]="room.amenities">
+        <div *ngIf="amenities.errors?.['minlength']">Amenities shold be min 5 chars.</div>
+        <div>{{amenities.errors | json}}</div>
+    </div>
+    <div class="form-group">
+        <input type="number" required class="form-control" name="price" #price="ngModel" placeholder="Price"
+            [(ngModel)]="room.price">
+    </div>
+    <div class="form-group">
+        <input type="text" required class="form-control" name="checkinTime" #checkinTime="ngModel"
+            placeholder="Checkin Time" [(ngModel)]="room.checkinTime">
+    </div>
+    <div class="form-group">
+        <input type="text" required class="form-control" name="checkoutTime" #checkoutTime="ngModel"
+            placeholder="Checkout Time" [(ngModel)]="room.checkoutTime">
+    </div>
+    <div class="form-group">
+        <input type="text" required class="form-control" name="photo" #photo="ngModel" placeholder="Photo Link"
+            [(ngModel)]="room.photo">
+    </div>
+    <div class="form-group">
+        <input type="number" required min="1" max="5" class="form-control" name="rating" #rating="ngModel"
+            placeholder="Rating" [(ngModel)]="room.rating">
+    </div>
+    <div class="form-group">
+        <button class="bt btn-primary" type="submit" [disabled]="roomsForm.invalid">Submit</button>
+    </div>
+</form>
+{{room | json}}<br>
+{{roomsForm.errors | json}}<br>
+{{roomsForm.pristine | json}}<br>
+{{roomsForm.dirty | json}}<br>
+{{roomsForm.valid | json}}<br>
+{{roomsForm.invalid | json}}<br>
+{{roomsForm.value | json}}<br>

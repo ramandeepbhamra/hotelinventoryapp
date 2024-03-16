@@ -1,0 +1,11 @@
+{
+    "selectLanguage": "Select Language",
+    "navigation": {
+        "rooms": "Rooms",
+        "employees": "Employees",
+        "addRoom": "Add Room",
+        "booking": "Booking",
+        "comments": "Comments",
+        "oneMore": ""
+    }
+}
